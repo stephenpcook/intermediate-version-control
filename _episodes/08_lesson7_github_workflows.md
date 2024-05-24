@@ -10,11 +10,46 @@ adapted: false
 
 ## GitHub Workflows
 
-TODO:
+In this lesson, we will go through some examples of typical workflows for collaborating with GitHub.
+The vast majority of the examples will directly translate to other hosting platforms, such as <https://bitbucket.org/> or <https://git.exeter.ac.uk/>.
+
+The lesson will take the form of short demonstrations, followed by time to practice the workflow with you course mates.
 
 ### Aside: Good Commit Messages
 
-TODO:
+When working collaboratively it is a good idea to adopt common conventions.
+A **strong** recommendation is to use a consistent format for commit messages.
+Having this consistency makes the workflows presented here, as well as the `log` and `blame` most effective.
+
+The first line of the commit message should be a short summary, written in the imperative, of *what this commit will do if applied*.
+This title is what will show up in the one-line version of our history, and should be capitalised without punctuation.
+It can be equated to the subject of an e-mail.
+Some examples are:
+
+- Update text on commit messages in workflow lesson
+- Fix missing dependency
+- Add links to each lesson in the schedule
+
+If further information would help describe the reasons for the commit, it can optionally be added to the body of the commit.
+This text should be separated from the title by a single blank line and ideally wrapped to 72 characters.
+GitHub allows for references to *issues* and *pull requests*, as we shall see below.
+
+An full example of a commit message:
+
+``` none
+Update text on commit messages in workflow lesson
+
+This serves as an example of good commit messages and will serve as a
+prompt to use good commit messages for the exercises in the lesson.
+
+It includes:
+
+- a summary of best practice
+- an example commit message
+- a link to a post
+```
+
+See [A Note About Git Commit Messages](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html).
 
 ### Creating Pull Requests from a Fork
 
