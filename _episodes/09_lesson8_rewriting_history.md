@@ -55,11 +55,47 @@ git commit --amend
 
 An editor window will open populated with our previous commit message, giving us the chance to update it.
 
-Try this out and change the commit message, then have a look at the output of `git log --all` and `git reflog`.
+#### Exercise: Amend
+
+Try this out and change the commit message, then have a look at the output of `git log --oneline --graph --all`, followed by `git reflog`.
+Add a tag to the "missing" commit then rerun the above `git log` command.
 
 ### Reset the Branch
 
-TODO: `git reset`
+Another relatively simple change is to move the head of a branch.
+This can be achieved with
+
+``` sh
+git reset <commit-sha>
+```
+
+The arguments supplied to `reset` change whether the workspace, the index or both are updated.
+
+The command `git reset --soft` will update the index but leave the working directory unchanged.
+This command is particularly useful for unstaging changes from the index.
+
+In contrast, `git reset --hard` will change the `HEAD` and also change the files in the working directory to match.
+We have to be especially careful with this command, since we can lose changes that haven't been commit anywhere.
+
+#### Aside: The Stash
+
+A useful command to quick store any unsaved changes is
+
+``` sh
+git stash
+```
+
+This takes the updates to our tracked files ans saves them into a local stash.
+(It could be used as a safer equivalent to `git reset --hard HEAD`.)
+We can then recover our changes with
+
+``` sh
+git stash pop
+```
+
+This action can even be performed on a different branch, providing us with a simple quick way of moving changes (say if we created a branch but forgot to switch to it).
+Multiple sets of changes can be stored in the stash, they can be annotated with `--message`, and they can all be viewed with `git stash list`.
+See the `git stash --help`  for extra features such as stashing untracked files, or moving stashed changes straight to a new branch.
 
 ### Interactive Rebase
 
