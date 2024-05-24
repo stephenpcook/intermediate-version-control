@@ -97,6 +97,8 @@ This will be demonstrated in the session.
 
 In pairs or small groups, practice making forks and Pull Requests on each-others' repositories.
 
+Try creating a pull request, then have the original owner make conflicting changes before merging.
+
 #### Repositories with Collaborators and Teams
 
 When working with colleagues, you are more likely to have some degree of access to the original repository.
@@ -107,19 +109,40 @@ Permissions can be set up to impose limits on different users, such as restricti
 
 ### Creating Issues and Linked Pull Requests
 
-TODO:
+Another feature available on GitHub is **Issues**.
+Issues can serve as a place to discuss bugs, improvements and general changes prior to creating pull requests.
+Issues can be linked to pull requests through their IDs, represented on GitHub by a number with a hash symbol (e.g., #1).
+Similarly, pull requests can be linked to issues through *their* IDs - in a repository, issues and pull requests use the same sequential IDs.
 
-### Reviewing Pull Requests
+Pull requests can be set up to automatically close issues when merged.
 
-TODO:
+Many open-source projects hosted on GitHub require that contributors create issues prior to creating a pull request.
+This requirement, along with any other considerations, are typically outlined in a document called `COLLABORATING.md` or similar.
+
+#### Exercise: Issues
+
+Practice creating issues, linking them with pull requests.
+
+### Contributing to Projects
+
+You have seen the main mechanisms for collaborating on projects, and should feel comfortable working with colleagues.
+There are some additional considerations before attempting to make contributions to projects on GitHub.
+
+The first thing to check, is whether the project is being actively maintained.
+As mentioned above, it is always advisable to read the **Collaborating** guidelines for a project, and a repository may outline a **Code of Conduct**.
+
+Additionally, you can expect to find some sort of **LICENSE**.
+The type of license may impose restrictions on how the code can be used (e.g., non-commercial uses only), and whether there are further restrictions on any code that uses the licensed code (e.g., code that uses derivative of the code might need to have an identical license).
+If a repository has no license, you are actually *more* restricted on what you can legally do with the files (an important consideration if you plan on sharing your own work on GitHub).
+
+It is useful to be aware of the main families of licenses you are likely to meet.
+A good place to start is <https://choosealicense.com/>.
 
 ### Summary
 
-We have seen how to work with remote repositories, and how download and upload changes.
+We have seen some typical workflows that enable collaboration through GitHub.
+These workflows are also typical for platforms beside GitHub.
+There are additional tools for planning and organising projects outside the scope of this course.
 
-In the next remainder of this session we will look at typical workflows using GitHub.
-We'll also see how we can rewrite our history, as well as the tools we have available to get unstuck when applying these more complicated changes.
-
-### Exercise
-
-We will go through an example of creating our own fork of a public repository, cloning our own version of it, then adding an upstream remote to the original repository.
+In the remainder of this course we'll see how we can rewrite our history, and when doing so should be avoided.
+We'll also see the tools we have available to get unstuck when applying these more complicated changes.
