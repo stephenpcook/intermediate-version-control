@@ -10,13 +10,52 @@ adapted: false
 
 ## Rewriting the History
 
+In previous lessons we have seen how to create commits, branch our work and merge changes from multiple branches.
+In this lesson we going to look at the options we have available to rewrite the commits in our history.
+
+When changing the history, we can lose sight of commits, so these operations aren't completely without risk and some care must be taken.
+We'll cover some precautions to take, and also see how to recover from mistakes.
+
 ### When to Rewrite the History
 
-TODO:
+As a rule of thumb, don't rewrite any history on a `main` branch.
+For a more nuanced approach, the more people who have a version of a commit, the less inclined you should be to rewrite the history.
+The safest time to rewrite the history is on a local branch that hasn't made it to a remote repository.
+
+Once a tracked branch has been pushed to a repository, if we modify the history the try to re-push, we will get an error message.
+We can tell the remote to replace the commits with the ones we are supplying with the `--force` argument, if we're sure this is what we want to do.
+
+### Getting Unstuck
+
+In all the cases presented below, making changes to the commit will actually create new commits with new SHAs.
+If the previous commit have no references pointing towards them (branches, tags, remote branches or detached HEAD) then they will no longer show up in our `log` (even with the `--all` flag).
+
+These *dangling commits* are still reachable from their SHA, but it is possible they could be cleaned up at some point by git's garbage collector.
+If you perform an operation here and lose a commit you wanted (step 1, Don't Panic), you can still see and reach the most recent commits visited:
+
+
+``` sh
+git reflog
+```
+
+These commit can either be access by the SHA, or the special references, e.g., `HEAD@{1}` for the previous commit location.
+In the first instance, it would be best to attach a branch or tag to the chain of misplaced commits (e.g., `git tag whoops HEAD@{1}` or `git branch whoopsy HEAD@{1}`).
+Following this you will be at your leisure to search the internet for how to recover your previous state (typically involving `git reset`).
 
 ### Commit --amend
 
-TODO: `git commit --amend`
+The smallest (and arguably safest) change we can make to the history is to update the previous commit.
+This is useful just after we've made a commit, then realised we missed something, or made a mistake in the files or the commit message.
+
+To modify the previous commit, use `git add` to stage the changes we missed out (if any), then create an `amend` commit:
+
+``` sh
+git commit --amend
+```
+
+An editor window will open populated with our previous commit message, giving us the chance to update it.
+
+Try this out and change the commit message, then have a look at the output of `git log --all` and `git reflog`.
 
 ### Reset the Branch
 
@@ -37,10 +76,6 @@ TODO:
 `git rebase main`
 
 Note: `rerere`
-
-### Getting Unstuck
-
-TODO: Don't Panic, `git reflog` and google.
 
 ### Summary
 
