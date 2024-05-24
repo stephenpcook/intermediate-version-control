@@ -42,9 +42,9 @@ These commit can either be access by the SHA, or the special references, e.g., `
 In the first instance, it would be best to attach a branch or tag to the chain of misplaced commits (e.g., `git tag whoops HEAD@{1}` or `git branch whoopsy HEAD@{1}`).
 Following this you will be at your leisure to search the internet for how to recover your previous state (typically involving `git reset`).
 
-### Commit --amend
+### Amend Commit
 
-The smallest (and arguably safest) change we can make to the history is to update the previous commit.
+The smallest (and arguably safest if done before pushing) change we can make to the history is to update the previous commit.
 This is useful just after we've made a commit, then realised we missed something, or made a mistake in the files or the commit message.
 
 To modify the previous commit, use `git add` to stage the changes we missed out (if any), then create an `amend` commit:
@@ -97,21 +97,62 @@ This action can even be performed on a different branch, providing us with a sim
 Multiple sets of changes can be stored in the stash, they can be annotated with `--message`, and they can all be viewed with `git stash list`.
 See the `git stash --help`  for extra features such as stashing untracked files, or moving stashed changes straight to a new branch.
 
+### Rebase Instead of Merge
+
+We have seen how we can use a merge to create a new commit with the changes from two branches:
+
+``` none
+    D--E feature
+   /
+  A--B--C main
+```
+
+From `main`, `git merge feature` would result in
+
+``` none
+    D----E feature
+   /      \
+  A--B--C--F main
+```
+
+where `F` has the changes from `B`, `C`, `D` and `E`.
+
+An alternative strategy would be to **rebase** the `feature` branch to `main`.
+In a rebase, the commits unique to the current branch are applied at the head of the specified branch.
+Returning to the previous example before the merge:
+
+``` none
+    D--E feature
+   /
+  A--B--C main
+```
+
+If we are on the `feature` branch, then calling `git rebase main` would result in
+
+``` none
+          D'--E' feature
+         /
+  A--B--C main
+```
+
+Here the two original commits unique to `feature` (`D` and `E`) have been discarded, and two new commits with the same changes (`D'` and `E'`) have been applied starting at the head of `main`.
+The result should be the same as the merge with a "simpler" history (assuming any conflicts are resolved in the same way).
+However, we have rewritten the history to get here - if there are any references to the previous commits, they will appear to be in the history twice.
+
+Merging or rebasing comes down to a matter of choice for the situation.
+As with all rewrites to the history, it should be avoided when other people might have work on top of the commits which will be removed.
+
+#### Aside: `rerere`
+
+If you decide to make significant use of `rebase`, you may find yourself being asked to resolve the exact same conflicts multiple times.
+In this case, enabling the tool `rerere`, or **reuse recorded resolution**, will save the user's fix of a conflict and reapply it each time it comes up.
+
 ### Interactive Rebase
 
 TODO:
 
 `git rev-list main..feature --oneline`
 `git rebase -i HEAD~4`
-
-### Rebase Instead of Merge
-
-TODO:
-
-`git switch feature`
-`git rebase main`
-
-Note: `rerere`
 
 ### Summary
 
