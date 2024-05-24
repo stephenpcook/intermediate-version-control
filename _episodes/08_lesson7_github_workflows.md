@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Remotes - GitHub
+title: GitHub Workflows
 order: 8
 session: 2
 length: 45
