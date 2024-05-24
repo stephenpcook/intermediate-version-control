@@ -3,7 +3,7 @@ layout: page
 title: Rewriting the History
 order: 9
 session: 2
-length: 20
+length: 30
 toc: true
 adapted: false
 ---
@@ -79,7 +79,7 @@ We have to be especially careful with this command, since we can lose changes th
 
 #### Aside: The Stash
 
-A useful command to quick store any unsaved changes is
+A useful command to quickly store any unsaved changes is
 
 ``` sh
 git stash
@@ -142,6 +142,8 @@ However, we have rewritten the history to get here - if there are any references
 Merging or rebasing comes down to a matter of choice for the situation.
 As with all rewrites to the history, it should be avoided when other people might have work on top of the commits which will be removed.
 
+An alternative to `rebase` is `cherry-pick`, which applies the changes of commits but leave the original branch unchanged.
+
 #### Aside: `rerere`
 
 If you decide to make significant use of `rebase`, you may find yourself being asked to resolve the exact same conflicts multiple times.
@@ -149,15 +151,25 @@ In this case, enabling the tool `rerere`, or **reuse recorded resolution**, will
 
 ### Interactive Rebase
 
-TODO:
+Another use of `rebase` is to review part of the history and to get to choose whether to reorder, edit, squash or delete each commit in turn.
+This is know as an **interactive rebase**.
 
-`git rev-list main..feature --oneline`
-`git rebase -i HEAD~4`
+This is simplest when we pick a number of commits unique to the current branch and rebase against the oldest one:
+
+``` sh
+git rebase --interactive HEAD~4
+```
+
+An editor will be opened with all the commits `pick`ed for inclusion in the rebase.
+We can change the first column for each commit to one of the keywords prompted.
+As an example, we could `edit` one commit message, and `squash` a number of commits into a single commit.
+
+This interactive rebase can be done at the same time as moving the commits to the head of another branch.
+However, we could more simply do the interactive rebase followed by a separate rebase.
 
 ### Summary
 
-TODO:
+We have seen a few options for rewriting the history, `commit --amend`, `reset` and `rebase`.
+We have also seen `reflog`, the main tool for finding our way back to "lost" commits as a result of rewrites.
 
-### Exercise
-
-TODO:
+To end the course, we shall briefly see ten things we did not have time to cover, that you might want to read up on in your own time.
