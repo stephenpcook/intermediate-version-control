@@ -125,6 +125,17 @@ We can see the extra commit with
 git log
 ```
 
+We can upload this new branch to GitHub with
+
+``` sh
+git push --set-upstream origin feature
+```
+
+then both branches will be visible in GitHub.
+
+We are now at a stage that we have enough to proceed with the next lesson.
+**The remainder of this tutorial is optional**, but the commands demonstrate some more actions we will be learning about in the rest of this course.
+
 ### Make a change to README through GitHub
 
 We can also make changes to files directly in GitHub.
