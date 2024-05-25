@@ -61,6 +61,12 @@ replacing the text in angle brackets (`<...>`) with your details.
 
 We are going to create a blank repository on GitHub and then create and upload a file from our local machine.
 
+You will need your terminal to be in your project directory:
+
+``` sh
+cd vcs-notes
+```
+
 Navigate your browser to <https://www.github.com> and sign in (if not already).
 In the left navigation panel, use the green **New** button.
 
