@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Wrap up
-order: 10
+order: 11
 session: 2
 length: 10
 toc: true
@@ -14,7 +14,8 @@ This is as part of an ongoing initiative to provide training for staff and stude
 
 We are grateful to the workshop leaders and helpers for supporting the delivery.
 
-If you have benefited in any way from this course and want to support its long term sustainability then please take the time to complete our feedback survey, recommend it to your colleagues, and enthuse about it to your senior leadership team.The programme and workshops are under constant evolution, and we are grateful for your feedback which is a core component of this process.
+If you have benefited in any way from this course and want to support its long term sustainability then please take the time to complete our feedback survey, recommend it to your colleagues, and enthuse about it to your senior leadership team.
+The programme and workshops are under constant evolution, and we are grateful for your feedback which is a core component of this process.
 
 ## Follow up
 
