@@ -123,6 +123,26 @@ This requirement, along with any other considerations, are typically outlined in
 
 Practice creating issues, linking them with pull requests.
 
+### Tagging Versions and Releases
+
+If we are going to produce outputs from code in our repository or distribute our code, it is a good idea to **tag** the commit with a **version number**.
+This way, we can be more confident that we can exactly reproduce the state of the code, so ideally we can use identical inputs to create identical outputs, i.e., we strive towards **Reproducibility**.
+
+Best practice for creating version numbers is to use **Semantic Versioning** (see <https://semver.org/>).
+A version might look like `v3.11.9`, which would be major version 3, minor version 11, patch 9.
+This would be added to the local and remote repositories with
+
+```sh
+git tag v3.11.9
+git push origin v3.11.9
+```
+
+From GitHub, we can then create a **release** from this tagged version.
+This can either be an automatically assembled zip (compressed archive) file, or by preparing our own archive with attached documentation and/or executables.
+
+If we were linking code in a GitHub repository to a academic publication, we would typically archive a version on a website such as <https://zenodo.org/>.
+This would form a persistent archive (a maintainer can always delete a repository) and give the version a Digital Object Identifier (DOI).
+
 ### Contributing to Projects
 
 You have seen the main mechanisms for collaborating on projects, and should feel comfortable working with colleagues.
