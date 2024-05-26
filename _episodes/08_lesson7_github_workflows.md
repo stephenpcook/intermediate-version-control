@@ -93,6 +93,13 @@ The pull request page allows for comments, discussion, and lets the maintainer u
 
 This will be demonstrated in the session.
 
+After we have merged the pull request, we can delete the feature branch and, if the remote branch has been deleted from GitHub, our local reference to that:
+
+``` sh
+git branch -d feature
+git fetch --prune
+```
+
 #### Exercise: Pull Requests
 
 In pairs or small groups, practice making forks and Pull Requests on each-others' repositories.
