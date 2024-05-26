@@ -10,7 +10,7 @@
   {% for node in sorted_pages %}
     <tr>
     <td>{{ node.session }}</td>
-    <td><a href="{{ node.url }}">{{ node.title }}</a></td>
+    <td><a href="{{ site.baseurl }}{{ node.url }}">{{ node.title }}</a></td>
     <td>{{ node.length }}</td>
   </tr>
 {% endfor %}
