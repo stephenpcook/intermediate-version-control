@@ -7,7 +7,7 @@ length: 20
 toc: true
 adapted: false
 ---
-
+HELLO WORLD!!!
 ## Working with Remotes
 
 At the start of the first session we created our *remote* repository on GitHub.
@@ -36,6 +36,7 @@ This e-mail address has the form `########+USERNAME@users.noreply.github.com`, w
 
 - There is a tick-box for using this substitution e-mail address for actions on GitHub;
 - and this is where you can find the e-mail address to use with `git config --global user.email`.
+
 
 ### Sending Changes to GitHub
 
