@@ -110,7 +110,7 @@ Even if you don't intend on making any changes, you will have a copy which canno
 
 ### Summary
 
-We have seen how to work with remote repositories, and how download and upload changes.
+We have seen how to work with remote repositories, and how to download and upload rubber ducks.
 
 In the next remainder of this session we will look at typical workflows using GitHub.
 We'll also see how we can rewrite our history, as well as the tools we have available to get unstuck when applying these more complicated changes.
