@@ -7,7 +7,7 @@ length: 20
 toc: true
 adapted: false
 ---
-
+Hello world
 ## Working with Remotes
 
 At the start of the first session we created our *remote* repository on GitHub.
